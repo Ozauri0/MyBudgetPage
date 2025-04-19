@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  mybudgetpage:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mybudgetpage
+    container_name: mybudgetpage
+    restart: unless-stopped
+    ports:
+      - "3003:3003"
+    # Si necesitas variables de entorno, descomenta y añade las que necesites
+    # environment:
+    #   - NODE_ENV=production
+    networks:
+      - app-network
+    # Si necesitas persistir datos, puedes añadir volúmenes
+    # volumes:
+    #   - ./data:/app/data
+
+# Define una red para la aplicación
+networks:
+  app-network:
+    driver: bridge

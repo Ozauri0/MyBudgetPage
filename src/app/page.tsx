@@ -1,103 +1,173 @@
-import Image from "next/image";
+import Link from "next/link"
+import { Smartphone, BarChart3, Lock, Shield, ChevronRight, Download } from "lucide-react"
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div>
+      {/* Hero Section */}
+      <section className="hero">
+        <div className="container">
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="md:w-1/2 text-center md:text-left">
+              <h1 className="text-4xl font-bold mb-4">Gestiona tus finanzas personales con MyBudget</h1>
+              <p className="text-xl mb-6">
+                Una aplicación móvil que te ayuda a controlar tus gastos e ingresos de forma privada y segura.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <a
+                  href="#features"
+                  className="btn-primary"
+                  style={{ backgroundColor: "white", color: "var(--primary)" }}
+                >
+                  Ver características
+                </a>
+                <Link href="/privacy-policy" className="btn-primary btn-outline">
+                  Política de privacidad
+                </Link>
+              </div>
+            </div>
+            <div className="md:w-1/2 flex justify-center md:justify-end">
+              <div className="phone-mockup">
+                <div className="phone-screen flex items-center justify-center">
+                  <Smartphone size={96} color="var(--primary)" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+      {/* Features Section */}
+      <section id="features" className="features">
+        <div className="container">
+          <h2 className="text-3xl font-bold text-center mb-8">Características principales</h2>
+          <div className="flex flex-col md:flex-row gap-8">
+            <div className="card text-center">
+              <div className="flex justify-center mb-4">
+                <div className="feature-icon">
+                  <BarChart3 size={32} />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-2">Visualización de Datos</h3>
+              <p>Analiza tus finanzas con gráficos intuitivos que te muestran cómo administras tu dinero.</p>
+            </div>
+
+            <div className="card text-center">
+              <div className="flex justify-center mb-4">
+                <div className="feature-icon">
+                  <Lock size={32} />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-2">Totalmente Serverless</h3>
+              <p>Tus datos nunca salen de tu dispositivo, garantizando la máxima privacidad y seguridad.</p>
+            </div>
+
+            <div className="card text-center">
+              <div className="flex justify-center mb-4">
+                <div className="feature-icon">
+                  <Shield size={32} />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-2">Sin Recolección de Datos</h3>
+              <p>No recopilamos ninguna información sobre ti o tus finanzas. Todo queda en tu dispositivo.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* App Description */}
+      <section className="description">
+        <div className="container">
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="md:w-1/2">
+              <h2 className="text-3xl font-bold mb-4">¿Por qué elegir MyBudget?</h2>
+              <p className="mb-4">
+                MyBudget es una aplicación diseñada pensando en tu privacidad. A diferencia de otras aplicaciones de
+                finanzas personales:
+              </p>
+              <ul className="mb-6">
+                <li className="flex items-start mb-2">
+                  <ChevronRight className="mr-2 text-primary" size={20} />
+                  No requiere conexión a internet para funcionar
+                </li>
+                <li className="flex items-start mb-2">
+                  <ChevronRight className="mr-2 text-primary" size={20} />
+                  No almacena tus datos en servidores remotos
+                </li>
+                <li className="flex items-start mb-2">
+                  <ChevronRight className="mr-2 text-primary" size={20} />
+                  No te muestra anuncios basados en tu información financiera
+                </li>
+                <li className="flex items-start mb-2">
+                  <ChevronRight className="mr-2 text-primary" size={20} />
+                  No comparte tus datos con terceros
+                </li>
+                <li className="flex items-start mb-2">
+                  <ChevronRight className="mr-2 text-primary" size={20} />
+                  Totalmente gratuita sin compras dentro de la aplicación
+                </li>
+              </ul>
+              <p>
+                MyBudget te ofrece el control total sobre tu información financiera con una experiencia de usuario
+                simple y elegante.
+              </p>
+            </div>
+            <div className="md:w-1/2 flex justify-center">
+              <div className="card">
+                <h3 className="text-2xl font-bold mb-4 text-primary">¿Cómo funciona?</h3>
+                <ol className="mb-0">
+                  {[
+                    "Registra tus ingresos y gastos diarios",
+                    "Categoriza tus transacciones",
+                    "Visualiza gráficos mensuales y anuales",
+                    "Establece presupuestos por categoría",
+                    "Guarda todos tus datos localmente",
+                  ].map((step, index) => (
+                    <li key={index} className="flex items-start mb-3">
+                      <span
+                        className="flex items-center justify-center"
+                        style={{
+                          width: "1.5rem",
+                          height: "1.5rem",
+                          borderRadius: "50%",
+                          backgroundColor: "var(--primary)",
+                          color: "white",
+                          fontWeight: "bold",
+                          marginRight: "0.75rem",
+                          fontSize: "0.75rem"
+                        }}
+                      >
+                        {index + 1}
+                      </span>
+                      <span>{step}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Download Section */}
+      <section className="download">
+        <div className="container">
+          <h2 className="text-3xl font-bold mb-6">Descarga MyBudget hoy mismo</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Comienza a gestionar tus finanzas de forma segura y privada con nuestra aplicación móvil.
+          </p>
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://play.google.com/store"
+            className="btn-primary"
+            style={{ backgroundColor: "white", color: "var(--primary)" }}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+            <Download size={20} className="mr-2" />
+            Descargar en Google Play
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
     </div>
-  );
+  )
 }
