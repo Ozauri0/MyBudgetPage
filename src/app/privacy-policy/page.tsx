@@ -178,6 +178,9 @@ export default function PrivacyPolicy() {
                       <strong>Almacenamiento:</strong> Necesario para guardar tus datos financieros localmente en tu
                       dispositivo.
                     </li>
+                    <li>
+                      <strong>Acceso a todos los archivos:</strong> Este permiso es necesario para acceder a la carpeta de descargas y permitir la creación y selección de bases de datos relacionadas con la aplicación. Garantizamos que este acceso se utiliza exclusivamente para esta funcionalidad principal y no para otros fines.
+                    </li>
                   </ul>
                   <p>
                     La aplicación no solicita permisos para acceder a Internet, contactos, ubicación, cámara, micrófono
